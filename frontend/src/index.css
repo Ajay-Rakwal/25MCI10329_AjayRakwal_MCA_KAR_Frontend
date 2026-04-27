@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --teal-primary: #0d9488;
+    --teal-dark: #0f766e;
+    --brown-primary: #78350f;
+    --brown-light: #d97706;
+    /* No White - Using Cream and Sand tones */
+    --bg-main: #f5f5dc; /* Beige/Cream */
+    --card-bg: #fef9c3; /* Light Yellow/Sand */
+    --input-bg: #fff7ed; /* Very light orange-tinted */
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    background-image: 
+      linear-gradient(135deg, #fef9c3 0%, #f5f5dc 100%);
+    color: #451a03; /* Dark Brown text instead of slate */
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Tinted Glass instead of White */
+  .glass-educational {
+    @apply bg-orange-50/80 backdrop-blur-md border border-orange-200/50 shadow-sm;
+  }
+
+  /* Educational Tinted Inputs */
+  select, input[type="text"], input[type="password"] {
+    @apply bg-orange-50/50 border-orange-200 text-orange-900 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all outline-none rounded-xl px-4 py-2.5 text-sm;
+  }
+
+  /* Positive Action Button */
+  .btn-positive {
+    @apply bg-teal-700 text-white rounded-xl px-6 py-3 font-semibold transition-all hover:bg-teal-800 hover:shadow-lg active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply border-2 border-orange-200 text-orange-800 rounded-xl px-6 py-3 font-semibold transition-all hover:bg-orange-100 hover:border-orange-300;
+  }
+}
+
+@layer utilities {
+  .text-positive { @apply text-teal-800; }
+  .bg-positive { @apply bg-orange-100; }
+  .border-positive { @apply border-orange-200; }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-orange-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-teal-200 rounded-full hover:bg-teal-300;
+}
